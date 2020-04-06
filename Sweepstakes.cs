@@ -6,8 +6,17 @@ namespace Sweepstakes
 {
     class Sweepstakes
     {
+        Random rand = new Random();
         Dictionary<int, Contestant> contestants;
         private string name;
+        private int numOfContestants;
+        public int NumOfContestests
+        {
+            get
+            {
+                return numOfContestants;
+            }
+        }
         public string Name
         {
             get
@@ -21,17 +30,27 @@ namespace Sweepstakes
         }
         public Sweepstakes(string name)
         {
+            Name = name;
             contestants = new Dictionary<int, Contestant>();
         }
 
         public void RegisterContestant(Contestant contestant)
         {
             contestants.Add(contestant.registrationNum, new Contestant());
+            numOfContestants++;
         }
 
-        public Contestant PickWinner()
+        
+        public Contestant PickWinner(int randNumber)
         {
+            
+        }
 
+        public int GenerateRandomNumber()
+        {
+            int randNumber;
+            randNumber = rand.Next(numOfContestants);
+            return randNumber;
         }
 
         public void PrintContestantInfo(Contestant contestant)
