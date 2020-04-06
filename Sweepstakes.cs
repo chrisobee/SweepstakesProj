@@ -50,7 +50,11 @@ namespace Sweepstakes
 
         public void PrintContestantInfo(Contestant contestant)
         {
-
+            Console.WriteLine($"The Contestant's name: {contestant.firstName} {contestant.lastName}");
+            Console.WriteLine($"The Contestant's email: {contestant.email}");
+            Console.WriteLine($"The Contestant's registration number: {contestant.registrationNum}");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }
