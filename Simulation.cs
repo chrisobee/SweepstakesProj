@@ -8,7 +8,7 @@ namespace Sweepstakes
     {
         public void CreateMarketingFirmWithManager()
         {
-
+            ManagerFactory.ChooseManager();
         }
     }
 }
