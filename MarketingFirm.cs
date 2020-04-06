@@ -15,7 +15,7 @@ namespace Sweepstakes
         
         public void CreateSweepstake()
         {
-
+            _manager.InsertSweepstakes(new Sweepstakes(UserInterface.EnterSweepstakeName()));
         }
     }
 }
