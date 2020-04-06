@@ -6,15 +6,33 @@ namespace Sweepstakes
 {
     class SweepstakesQueueManager : ISweepstakesManager
     {
-        Queue<Sweepstakes> queue;
+        private Queue<Sweepstakes> queue;
+        public Queue<Sweepstakes> Queue
+        {
+            get
+            {
+                return queue;
+            }
+        }
+        public SweepstakesQueueManager()
+        {
+            queue = new Queue<Sweepstakes>();
+        }
         public Sweepstakes GetSweepstakes()
         {
-            throw new NotImplementedException();
+            if(!queue.TryDequeue(out Sweepstakes result))
+            {
+                throw new InvalidOperationException("The queue is empty");
+            }
+            else
+            {
+                return result;
+            }
         }
 
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
-            throw new NotImplementedException();
+            queue.Enqueue(sweepstakes);
         }
     }
 }

@@ -6,15 +6,33 @@ namespace Sweepstakes
 {
     class SweepstakesStackManager : ISweepstakesManager
     {
-        Stack<Sweepstakes> stack;
+        private Stack<Sweepstakes> stack;
+        public Stack<Sweepstakes> Stack
+        {
+            get
+            {
+                return stack;
+            }
+        }
+        public SweepstakesStackManager()
+        {
+            Stack<Sweepstakes> stack = new Stack<Sweepstakes>();
+        }
         public Sweepstakes GetSweepstakes()
         {
-            throw new NotImplementedException();
+            if (!stack.TryPop(out Sweepstakes result))
+            {
+                throw new InvalidOperationException("Stack is empty");
+            }
+            else
+            {
+                return result;
+            }
         }
 
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
-            throw new NotImplementedException();
+            stack.Push(sweepstakes);
         }
     }
 }
