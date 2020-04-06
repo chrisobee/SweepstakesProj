@@ -41,16 +41,11 @@ namespace Sweepstakes
         }
 
         
-        public Contestant PickWinner(int randNumber)
-        {
-            
-        }
-
-        public int GenerateRandomNumber()
+        public Contestant PickWinner()
         {
             int randNumber;
             randNumber = rand.Next(numOfContestants);
-            return randNumber;
+            return contestants[randNumber];
         }
 
         public void PrintContestantInfo(Contestant contestant)
