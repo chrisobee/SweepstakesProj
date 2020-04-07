@@ -6,7 +6,10 @@ namespace Sweepstakes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Simulation sim = new Simulation();
+
+            sim.CreateMarketingFirmWithManager();
+            sim.SendEmail();
         }
     }
 }

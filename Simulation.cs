@@ -6,9 +6,18 @@ namespace Sweepstakes
 {
     class Simulation
     {
+        MarketingFirm firm; 
+
         public void CreateMarketingFirmWithManager()
         {
-            MarketingFirm firm = new MarketingFirm(ManagerFactory.ChooseManager());
+            firm = new MarketingFirm(ManagerFactory.ChooseManager());
         }
+
+        public void SendEmail()
+        {
+            EmailAPI email = new EmailAPI(firm.Name, firm.Email);
+            email.SendEmailToLoser();
+        }
+
     }
 }
