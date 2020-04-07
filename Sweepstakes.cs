@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MailKit;
+using MimeKit;
 
 namespace Sweepstakes
 {
@@ -39,13 +41,17 @@ namespace Sweepstakes
             contestants.Add(contestant.registrationNum, new Contestant());
             numOfContestants++;
         }
-
         
         public Contestant PickWinner()
         {
             int randNumber;
             randNumber = rand.Next(numOfContestants);
             return contestants[randNumber];
+        }
+
+        public void NotifyContestants(int randNumber)
+        {
+             
         }
 
         public void PrintContestantInfo(Contestant contestant)
@@ -56,5 +62,6 @@ namespace Sweepstakes
             Console.ReadLine();
             Console.Clear();
         }
+
     }
 }

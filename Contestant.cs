@@ -4,19 +4,23 @@ using System.Text;
 
 namespace Sweepstakes
 {
-    class Contestant
+    class Contestant:IWinnable
     {
         public string firstName;
         public string lastName;
         public string email;
         public int registrationNum;
-
         public Contestant()
         {
             Validate email = new Validate();
             firstName = UserInterface.EnterFirstName();
             lastName = UserInterface.EnterLastName();
             this.email = email.CheckForValidEmail();
+        }
+
+        public void Notify()
+        {
+            Console.WriteLine($"{firstName} {lastName} unfortunately did not win the sweepstake");
         }
     }
 }
