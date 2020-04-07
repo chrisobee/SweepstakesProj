@@ -20,14 +20,14 @@ namespace Sweepstakes
             message.ReplyTo.Add(new MailboxAddress($"{name}", $"{marketingEmail}"));
         }
 
-        public void SendEmailToLoser()
+        public void SendEmailToWinner()
         {
             message.Subject = $"Result of Sweepstake";
             message.Body = new TextPart("plain")
             {
-                Text = $@"Well Hello There,
+                Text = $@"Fantastic News,
 
-Unfortunately, you did not win the sweepstake you participated in. Maybe you'll win the next one!
+You are the winner of the Sweepstakes you recently participated in!
 
 -- {firmName}"
             };

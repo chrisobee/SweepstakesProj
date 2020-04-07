@@ -16,7 +16,7 @@ namespace Sweepstakes
         public void SendEmail()
         {
             EmailAPI email = new EmailAPI(firm.Name, firm.Email);
-            email.SendEmailToLoser();
+            email.SendEmailToWinner();
         }
 
     }

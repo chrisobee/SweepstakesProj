@@ -4,23 +4,25 @@ using System.Text;
 
 namespace Sweepstakes
 {
-    class Contestant:IWinnable
+    class Contestant:INotifiable
     {
-        public string firstName;
-        public string lastName;
-        public string email;
-        public int registrationNum;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public int RegistrationNum { get; set; }
+        public bool IsWinner { get; set; }
         public Contestant()
         {
             Validate email = new Validate();
-            firstName = UserInterface.EnterFirstName();
-            lastName = UserInterface.EnterLastName();
-            this.email = email.CheckForValidEmail();
+            FirstName = UserInterface.EnterFirstName();
+            LastName = UserInterface.EnterLastName();
+            Email = email.CheckForValidEmail();
         }
 
-        public void Notify()
+        public virtual void Notify()
         {
-            Console.WriteLine($"{firstName} {lastName} unfortunately did not win the sweepstake");
+            Console.WriteLine($"Unfortunately, you did not win the Sweepstakes");
+            Console.ReadLine();
         }
     }
 }

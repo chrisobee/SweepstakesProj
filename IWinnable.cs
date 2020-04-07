@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sweepstakes
 {
-    interface IWinnable
+    interface INotifiable
     {
         public void Notify();
     }
